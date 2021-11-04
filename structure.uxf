@@ -1,0 +1,68 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>790</x><y>270</y><w>300</w><h>190</h></coordinates><panel_attributes>Pallets
+--
+_- palletId_ : lower(hex(randomblob(16)))
+- production_date : DATETIME
+- delivered_date : DATETIME
+- blocked : BOOLEAN
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>0</y><w>300</w><h>190</h></coordinates><panel_attributes>Orders
+--
+_- order_ID_ : lower(hex(randomblob(16)))
+- order_date: DATETIME
+- delivered_date: DATETIME
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>320</w><h>190</h></coordinates><panel_attributes>Customers
+--
+_- customer_id_: lower(hex(randomblob(16)))
+- customer_name: TEXT
+- address: TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1190</x><y>550</y><w>210</w><h>190</h></coordinates><panel_attributes>Inventory
+--
+_- ingredient_ : TEXT
+- amount : REAL
+- date : DATETIME</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1180</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>Recipe
+--
+_- cookie_type_ : TEXT
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>0</y><w>240</w><h>190</h></coordinates><panel_attributes>&lt;&lt;weak&gt;&gt;
+Sub-order
+--
+- quantity : INTEGER
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>80</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=1
+</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Text</id><coordinates><x>170</x><y>290</y><w>560</w><h>160</h></coordinates><panel_attributes>pallets(_pallet_id_, /_order_id_/, /_cookie_type_/, production_time, blocked, delivered_date)
+orders(_order_ID_, order_date, delivered_date, /_customer_ID_/)
+suborders(/_order_ID_/, /_cookie_type_/, quantity)
+recipe(_cookie_type_, _ingredient_, amount)
+inventory( _ingredient_, amount, date)
+shipment(truck_plate, delivery_date, /_order_id_/, /_pallet_id_/)
+
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>90</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=1
+</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>180</y><w>40</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=1
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>540</y><w>240</w><h>190</h></coordinates><panel_attributes>&lt;&lt;weak&gt;&gt;
+Shipment
+--
+- truck_plate : TEXT
+- delivered_date : DATETIME
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>450</y><w>40</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1180</x><y>270</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;weak&gt;&gt;
+RecipeItem
+--
+- amount : REAL
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1053</x><y>80</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=1
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1262</x><y>183</y><w>40</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1272</x><y>453</y><w>40</w><h>120</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element></diagram>

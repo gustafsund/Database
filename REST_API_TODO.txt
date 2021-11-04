@@ -1,0 +1,13 @@
+- reset
+- post customers D
+- get customers D
+- post ingredients G
+- get ingredients G
+- post cookie D
+- get cookie D
+- post pallets G
+- get pallets G
+- blocking D
+- unblocking D
+______optional______
+- post orders
